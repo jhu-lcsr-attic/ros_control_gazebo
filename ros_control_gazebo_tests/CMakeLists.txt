@@ -11,6 +11,13 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
 
+# Gazebo simulator
+include (FindPkgConfig)
+if (PKG_CONFIG_FOUND)
+ pkg_check_modules(GAZEBO gazebo)
+endif()
+include_directories(${GAZEBO_INCLUDE_DIRS})
+
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
@@ -31,3 +38,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 # Build RobotSim Interface
 rosbuild_add_library(ros_control_gazebo_tests src/robot_sim_rr.cpp)
+target_link_libraries(ros_control_gazebo_tests ${GAZEBO_LIBRARIES})

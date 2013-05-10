@@ -11,10 +11,9 @@
 
   <depend package="ros_control_gazebo"/>
   <depend package="ros_control_gazebo_plugin"/>
-  
   <depend package="effort_controllers"/>
 
-  <depend package="gazebo"/>
+  <rosdep name="gazebo" />
 
   <export>
     <ros_control_gazebo plugin="${prefix}/robot_sim_plugins.xml" />
