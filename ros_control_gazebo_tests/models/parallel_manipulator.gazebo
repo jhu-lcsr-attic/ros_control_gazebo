@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot>
+
+<!-- ros_control plugin -->
+<gazebo>
+  <plugin name="ros_control" filename="libros_control_gazebo_plugin.so">
+    <ns>parallel/ros_control</ns>
+    <robotSimType>ros_control_gazebo_tests/RobotSimParallel</robotSimType>
+    <controlPeriod>0.001</controlPeriod>
+  </plugin>
+</gazebo>
+
+<!-- Link1 -->
+<gazebo reference="link1">
+  <material>Gazebo/Grey</material>
+</gazebo>
+
+<!-- Link2 -->
+<gazebo reference="link2">
+  <material>Gazebo/Grey</material>
+</gazebo>
+
+<!-- Link3 -->
+<gazebo reference="link3">
+  <material>Gazebo/Red</material>
+</gazebo>
+
+
+<!-- Link4 -->
+<gazebo reference="link4">
+  <material>Gazebo/Blue</material>
+</gazebo>
+
+<!-- Link5 -->
+ <gazebo reference="link5">
+   <material>Gazebo/Black</material>
+ </gazebo>
+
+ <!-- Link6 -->
+ <gazebo reference="link6">
+   <material>Gazebo/Orange</material>
+ </gazebo>
+
+</robot>

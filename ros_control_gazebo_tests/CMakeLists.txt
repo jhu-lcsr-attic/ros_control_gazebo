@@ -11,10 +11,12 @@ if (PKG_CONFIG_FOUND)
   pkg_check_modules(GAZEBO gazebo)
 endif()
 
-include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
 
 # Build RobotSim Interface
-add_library(ros_control_gazebo_tests src/robot_sim_rr.cpp)
+add_library(ros_control_gazebo_tests 
+  src/robot_sim_rr.cpp
+  src/robot_sim_parallel.cpp)
 
 # TODO: fill in what other packages will need to use this package
 ## DEPENDS: system dependencies of this project that dependent projects also need
