@@ -5,7 +5,16 @@
     type="ros_control_gazebo_tests::RobotSimRR"
     base_class_type="ros_control_gazebo::RobotSim">
     <description>
-      A test robot simulation interface.
+      A test robot simulation interface for a revolute-revolute robot.
+    </description>
+  </class>
+
+  <class
+    name="ros_control_gazebo_tests/RobotSimParallel"
+    type="ros_control_gazebo_tests::RobotSimParallel"
+    base_class_type="ros_control_gazebo::RobotSim">
+    <description>
+      A test robot simulation interface for a (faked) parallel robot.
     </description>
   </class>
 </library>
