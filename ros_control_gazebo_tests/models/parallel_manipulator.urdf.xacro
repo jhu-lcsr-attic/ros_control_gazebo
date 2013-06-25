@@ -1,0 +1,216 @@
+<?xml version="1.0"?> 
+<!-- Parallel Manipulator -->
+<robot name="parallel_manipulator"
+  xmlns:xacro="http://www.ros.org/wiki/xacro"
+  xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller">
+
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors 
+  <xacro:include filename="$(find ros_control_gazebo_tests)/model/parallel_manipulator.gazebo" />
+-->
+
+  <gazebo>
+    <plugin name="ros_control" filename="libros_control_gazebo_plugin.so">
+      <ns>parallel/ros_control</ns>
+      <robotSimType>ros_control_gazebo_tests/RobotSimParallel</robotSimType>
+      <controlPeriod>0.001</controlPeriod>
+    </plugin>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Link3 -->
+  <gazebo reference="link3">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+
+  <!-- Link4 -->
+  <gazebo reference="link4">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <!-- Link5 -->
+  <gazebo reference="link5">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link6 -->
+  <gazebo reference="link6">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+
+  <link name="world"/>
+
+  <link name="link1">
+    <collision name="collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="0.9 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1 0.1 0.1"/> </geometry>
+     <material name="grey"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <link name="link2">
+    <collision name="collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="0.9 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1 0.1 0.1"/> </geometry>
+      <material name="grey"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <link name="link3">
+    <collision name="collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="0.9 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1 0.1 0.1"/> </geometry>
+      <material name="red"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  
+  <link name="link4">
+       <collision name="collision">
+      <origin xyz=".8 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1.1 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.8 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1.1 0.1 0.1"/> </geometry>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+  
+  <link name="link5">
+    <collision name="collision">
+    <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="0.9 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size=".5 0.1 0.1"/> </geometry>
+      <material name="black"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+  
+  <link name="link6">
+    <collision name="collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="0.9 0.1 0.1"/> </geometry>
+    </collision>
+    <visual name="visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry> <box size="1 0.1 0.1"/> </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia 
+        ixx="1.0" ixy="0.0" ixz="0.0" 
+        iyy="1.0" iyz="0.0" 
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="link1"/>
+    <origin xyz="0 0 .5" rpy="${PI/2} 0 0"/>
+  </joint>
+
+  <joint name="joint1" type="continuous">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="1 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="joint2" type="continuous">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="1 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint> 
+
+  <joint name="joint3" type="continuous">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz="1 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="joint4" type="continuous">
+    <parent link="link2"/>
+    <child link="link5"/>
+    <origin xyz="1 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint> 
+
+  <joint name="joint5" type="continuous">
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz="1 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint> 
+</robot>
